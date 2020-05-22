@@ -1,65 +1,84 @@
+//values are read only variables.
 val i = () -> 20 * 5;
 val j = 20 * 5;
 
+//variables, without a type specified, can be any type.
 var l = 10 - 5; 
 
+//streams, is a way of modifying arrays. this adds 1, multiplies by 5, then lets trough only values bigger than 20, and then it maps the x*x expression.
 [1..10] => +1 => *5 => >20 => map(x) {x*x};
 
+//function. args can have a label, and if they dont, the arg name would be used instead.
 void fn hello (someint: int x, somestring: str y, bool z, float a) {
 
 }
 
+//a class
 class Hello {
+	//a constructor is like any other function.
 	cn fn () {
 		
 	}
 }
 
-obj someObj {
-	name: "some name",
-	value: 100
-}
-
+//an array without any type can have anything.
 var somearr = [
 	"a string",
 	52,
 	144.544
 	false,
-	() -> "hey!"
+	//including functions.
+	() -> 5*4
 	() -> {println("accessed"); return "hey";}
 ];
 
+//functions can return stuff
 int fn someFunc(bool x) {
 	if (x)
 		return 0;
 	else
+		//functions can return none to signal they failed.
 		return none; 
 }
 
+//args can have default values, thus making them optional.
 void fn someOtherFunc(a: str b = "c") {
 	
 }
 
+//args of the same type can be specified like this.
 void fn heyThonk(str a, b) {
 
 }
 
+//functions require specifying labels.
 heyThonk(a: "a", b: "b");
 
+//strings can be evaluated as code. including variables!
 $("println('hey');");
 
+//variables can have types.
 var int x = 10;
 
+//values can be functions.
 val log = (toPrint) -> {println("$toPrint")};
 
+log("hey");
+
+//a variable can store a type.
 type someType = int;
 
-someType y = 10;
+//which can be used instead of a type.
+var someType y = 10;
 
+//an unsigned 256 integer.
 var un int(256) bruh;  
 
+//classes can inherit from multiple classes.
+//classes can inherit from types.
 class SpecialType : int, str {
 	cn fn (int intt) {
+		//when inheriting from types, internal is the internal vairable storing the bytes.
 		internal = intt.getBytes();
 	}
 
@@ -67,37 +86,48 @@ class SpecialType : int, str {
 		internal = strr.getBytes();
 	}
 
+	//when inheriting from multiple types, you need to specify how to convert between them.
 	tp (int > str) fn (int:tp intt) {
 		return new str(intt.getBytes());
 	}
 
+	//this works, because ints automatically resize.
 	tp (str > int) fn (str:tp strr) {
 		return new int(strr.getBytes());
 	}
 }
 
+//$() in a string allows evaluating an expr, and ${} is short for $({}), which allows any code.
 println("$(10 + 10) and ${var x = 10; return 10;}");
 
+//ordered functions are functions which care about the order of the args.
 ordered fn hey(int x smth) {
 
 }
 
 hey(1000);
 
-op(§) myop fn (expr:op a, expr:op b) {
+//custom operators. :op means that that arg is for the operator.
+//two args mean a binary operator. the opearator specified is §.
+op(§) fn (expr:op a, expr:op b) {
 	return a + b * b + a;
 }
 
+//custom operators need parenthesses.
 println((10 § 10) + 1);
 
+//math allow evaluating math expressions in strings.
 println(math ("10 * 10 + 10") {mul, add});
 
+//the regex operator!
 println("hey HEY" ? "[a-z]");
 
+//ext extends the int type with the following function. can be a type too!
 ext(int) fn smth (int:ext smth) {
 	println(smth);
 }
 
+//a class
 class SomeWeirdClass {
 	var x = 10;
 
@@ -108,10 +138,13 @@ class SomeWeirdClass {
 
 //some other file
 
+//you can import only classes.
 import SomeWeirdClass
 
+//imported function.
 println(hello());
 
+//an int array.
 int[] hey = [
 	0,
 	1,
@@ -121,13 +154,18 @@ int[] hey = [
 	34,
 ]
 
+//puts to the array the number 45.
 hey += 45;
 
-hey => + 2;
+//streams the array to the expr +2. that extra = means to assign the result of the stream.
+hey ==> +2;
 
+//json objects
+fn smthThonk (obj inp) {
+	println(inp.name);
+}
 
-
-
+smthThonk(obj {name: "hello"});
 
 
 
