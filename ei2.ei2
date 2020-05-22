@@ -166,16 +166,3 @@ fn smthThonk (obj inp) {
 }
 
 smthThonk(obj {name: "hello"});
-
-
-
-
-
-
-
-
-
-
-
-
-
