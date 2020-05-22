@@ -1,0 +1,143 @@
+val i = () -> 20 * 5;
+val j = 20 * 5;
+
+var l = 10 - 5; 
+
+[1..10] => +1 => *5 => >20 => map(x) {x*x};
+
+void fn hello (someint: int x, somestring: str y, bool z, float a) {
+
+}
+
+class Hello {
+	cn fn () {
+		
+	}
+}
+
+obj someObj {
+	name: "some name",
+	value: 100
+}
+
+var somearr = [
+	"a string",
+	52,
+	144.544
+	false,
+	() -> "hey!"
+	() -> {println("accessed"); return "hey";}
+];
+
+int fn someFunc(bool x) {
+	if (x)
+		return 0;
+	else
+		return none; 
+}
+
+void fn someOtherFunc(a: str b = "c") {
+	
+}
+
+void fn heyThonk(str a, b) {
+
+}
+
+heyThonk(a: "a", b: "b");
+
+$("println('hey');");
+
+var int x = 10;
+
+val log = (toPrint) -> {println("$toPrint")};
+
+type someType = int;
+
+someType y = 10;
+
+var un int(256) bruh;  
+
+class SpecialType : int, str {
+	cn fn (int intt) {
+		internal = intt.getBytes();
+	}
+
+	cn fn (str strr) {
+		internal = strr.getBytes();
+	}
+
+	tp (int > str) fn (int:tp intt) {
+		return new str(intt.getBytes());
+	}
+
+	tp (str > int) fn (str:tp strr) {
+		return new int(strr.getBytes());
+	}
+}
+
+println("$(10 + 10) and ${var x = 10; return 10;}");
+
+ordered fn hey(int x smth) {
+
+}
+
+hey(1000);
+
+op(§) myop fn (expr:op a, expr:op b) {
+	return a + b * b + a;
+}
+
+println((10 § 10) + 1);
+
+println(math ("10 * 10 + 10") {mul, add});
+
+println("hey HEY" ? "[a-z]");
+
+ext(int) fn smth (int:ext smth) {
+	println(smth);
+}
+
+class SomeWeirdClass {
+	var x = 10;
+
+	fn hello() {
+
+	}
+}
+
+//some other file
+
+import SomeWeirdClass
+
+println(hello());
+
+int[] hey = [
+	0,
+	1,
+	5,
+	64,
+	21
+	34,
+]
+
+hey += 45;
+
+hey => + 2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
