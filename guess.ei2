@@ -1,0 +1,30 @@
+class Reveable : str {
+	str(write) whole;
+
+	cn fn (str whole) {
+		this.whole = whole;
+	}
+
+	prv mask theMask;
+
+	void fn reveal() {
+		theMask.set(pos: rand(start: 0, end: whole.size(), check: !theMask), value: true);
+	}
+
+	read fn () {
+		return theMask.check(whole);
+	}
+}
+
+ln(read) fn (str:ln inp) {
+	str word = "world";
+	Reveable rv = new Reveable(word);
+	if(read == world) {
+		println("you won!");
+	} else {
+		rv.reveal();
+		println(rv);
+	}
+}
+
+
